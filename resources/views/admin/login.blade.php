@@ -30,7 +30,7 @@
             <div class="card blur border-light mb-2">
                 <div class="card-header blur">
                     <img src="{{ asset('images/iconbabel.png') }}" class="avatarImg">
-                    <h3 class="text-center text-light mt-5">  SIGANAK {{$ynow}}</h3>
+                    <h3 class="text-center text-light mt-5">Login Admin  SIMTI {{$ynow}} </h3>
                 </div>
 
                 <div class="card-body ">
@@ -38,12 +38,12 @@
                         @csrf
 
                         <div class="form-group">
-                            <label for="email" class="text-light">{{ __('Username / Email ') }}</label>
+                            <label for="email" class="text-light">{{ __('Username / NIP ') }}</label>
 
                             <div class="">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email" autofocus>
+                                <input id="username" type="text" class="form-control  " name="username" value="{{ old('username') }}" required autocomplete="username" placeholder="username" autofocus>
 
-                                @error('email')
+                                @error('username')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -83,7 +83,7 @@
                 </div>
                 <div class="card-footer bg-light">
                 
-                    <small>Copyright @ DP3ACSKB Provinsi Kepulauan Bangka Belitung  </small>
+                    <small>Copyright @ Dinas Pendidikan Provinsi Kepulauan Bangka Belitung  </small>
                 </div>
             </div>
         </div>

@@ -48,11 +48,11 @@ class AdminController extends Controller
     public function postLogin(Request $request)
     {
         $this->validate($request, [
-            'email' => 'required|email',
+            'username' => 'required',
             'password' => 'required|min:5'
         ]);
 
-        if (auth()->guard('admin')->attempt($request->only('email', 'password'))) {
+        if (auth()->guard('admin')->attempt($request->only('username', 'password'))) {
             $request->session()->regenerate();
             
             return redirect()->intended('/admin');
@@ -65,7 +65,7 @@ class AdminController extends Controller
                 ->withErrors(["Incorrect user login details!"]);
                 */
                 return back()->withErrors([
-                    'email' => 'Username/Email tidak sesuai, silahkan ulangi.',
+                    'username' => 'Username/NIP tidak sesuai, silahkan ulangi.',
                     'password' => 'Password tidak sesuai.',
                 ]);
         }

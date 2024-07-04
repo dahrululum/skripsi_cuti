@@ -6,7 +6,7 @@
 
           <div class="col-lg-6 col-xs-12 text-lg-start text-center">
             <p class="copyright-text">
-              &copy; Copyright <strong>DP3ACSKB Provinsi Kepulauan Bangka Belitung</strong>. 
+              &copy; Copyright <strong>Dinas Pendidikan Provinsi Kepulauan Bangka Belitung</strong>. 
             </p>
              
           </div>
@@ -18,7 +18,7 @@
               </li>
 
               <li class="list-inline-item">
-                <a href="#about">Tentang SI-GANAK</a>
+                <a href="#about">Tentang SIMTI</a>
               </li>
  
               

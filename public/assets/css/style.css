@@ -93,8 +93,8 @@ a:hover {
   font-family: "Roboto", Helvetica, Arial, sans-serif;
   font-weight: 800;
   color: #fff;
-  padding: 15px 45px;
-  border-radius: 50px;
+  padding: 10px 45px;
+  border-radius: 10px;
 }
 
 .btn:hover {

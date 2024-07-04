@@ -4,9 +4,9 @@
 
   @include('site.section_about')
     <!-- ======= Features Section ======= -->
-  @include('site.section_publikasi')  
+  @include('site.section_login')  
     <!-- ======= informasi Section ======= -->
-    @include('site.section_informasi')  
+    
     <!-- ======= Contact Section ======= -->
   @include('site.section_contact') 
  

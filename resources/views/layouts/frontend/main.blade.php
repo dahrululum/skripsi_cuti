@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>SIGANAK :: DP3ACSKB Provinsi Kepulauan Bangka Belitung</title>
+    <title>SKRIPSI HERLINA :: DINAS PENDIDIKAN Provinsi Kepulauan Bangka Belitung</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
@@ -21,6 +21,7 @@
       <link href="{{ asset('assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
       <!-- Template Main CSS File -->
       <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet"> 
+      <link href="{{ asset('css/loginadmin.css') }}" rel="stylesheet">
 {{--       
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -36,17 +37,21 @@
         <div class="container text-center">
           <div class="row">
             <div class="col-md-12">
-              <a class="hero-brand" href="#" title="Home"><img alt="SiGanak" src="{{ asset('images/logobabel.png') }}"></a>
+              <a class="hero-brand" href="#" title="Home"><img alt="SIMTI" src="{{ asset('images/logobabel.png') }}"></a>
             </div>
           </div>
     
           <div class="col-md-12">
             <h1>
-              SI-GANAK
+              SIMTI
             </h1>
     
             <p class="tagline">
-             Sistem Informasi Gender dan Anak
+              RANCANG BANGUN
+              SISTEM INFORMASI MANAJEMEN CUTI BERBASIS WEB MENGGUNAKAN <br>
+              MODEL RAPID APPLICATION DEVELOPMEN ( RAD ) PADA <br> DINAS PENDIDIKAN 
+              PROVINSI KEPULAUAN BANGKA BELITUNG
+              
             </p>
             <a class="btn btn-full scrollto" href="#about">Mulai</a>
           </div>
@@ -58,7 +63,7 @@
     <div class="container d-flex align-items-center">
 
       <div id="logo" class="me-auto">
-        <a href="#"><img src="{{ asset('images/logo_siganak.png') }}" alt=""></a>
+        <a href="#"><img src="{{ asset('images/logo_simti.png') }}" alt=""></a>
         <!-- Uncomment below if you prefer to use a text image -->
         <!--<h1><a href="#hero">Bell</a></h1>-->
       </div>
