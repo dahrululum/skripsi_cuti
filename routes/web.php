@@ -48,9 +48,46 @@ Route::post('/admin/post-edituserpd', [AdminController::class,'postEdituserpd'])
 
 Route::get('/admin/deluser/{id}',  [AdminController::class,'deluser']);
  
-//10 06 2024
-//wilayah
-Route::get('admin/wilayah', [AdminController::class,'wilayah'])->name('admin.wilayah');
+//24 07 2024
+//utilitas
+Route::get('admin/unitkerja', [AdminController::class,'unitkerja'])->name('admin.unitkerja');
+Route::get('/admin/addunitkerja', [AdminController::class,'addunitkerja'])->name('admin.addunitkerja');
+Route::post('/admin/post-addunitkerja', [AdminController::class,'postAddunitkerja']); 
+Route::get('/admin/editunitkerja/{id}',  [AdminController::class,'editunitkerja'])->name('admin.editunitkerja');
+Route::post('/admin/post-editunitkerja', [AdminController::class,'postEditunitkerja']); 
+
+Route::get('admin/jabatan', [AdminController::class,'jabatan'])->name('admin.jabatan');
+Route::get('/admin/addjabatan', [AdminController::class,'addjabatan'])->name('admin.addjabatan');
+Route::post('/admin/post-addjabatan', [AdminController::class,'postAddjabatan']); 
+Route::get('/admin/editjabatan/{id}',  [AdminController::class,'editjabatan'])->name('admin.editjabatan');
+Route::post('/admin/post-editjabatan', [AdminController::class,'postEditjabatan']); 
+
+Route::get('admin/pangkat', [AdminController::class,'pangkat'])->name('admin.pangkat');
+Route::get('/admin/addpangkat', [AdminController::class,'addpangkat'])->name('admin.addpangkat');
+Route::post('/admin/post-addpangkat', [AdminController::class,'postAddpangkat']); 
+Route::get('/admin/editpangkat/{id}',  [AdminController::class,'editpangkat'])->name('admin.editpangkat');
+Route::post('/admin/post-editpangkat', [AdminController::class,'postEditpangkat']); 
+
+Route::get('admin/golongan', [AdminController::class,'golongan'])->name('admin.golongan');
+Route::get('/admin/addgolongan', [AdminController::class,'addgolongan'])->name('admin.addgolongan');
+Route::post('/admin/post-addgolongan', [AdminController::class,'postAddgolongan']); 
+Route::get('/admin/editgolongan/{id}',  [AdminController::class,'editgolongan'])->name('admin.editgolongan');
+Route::post('/admin/post-editgolongan', [AdminController::class,'postEditgolongan']); 
+
+Route::get('admin/jeniscuti', [AdminController::class,'jeniscuti'])->name('admin.jeniscuti');
+Route::get('/admin/addjeniscuti', [AdminController::class,'addjeniscuti'])->name('admin.addjeniscuti');
+Route::post('/admin/post-addjeniscuti', [AdminController::class,'postAddjeniscuti']); 
+Route::get('/admin/editjeniscuti/{id}',  [AdminController::class,'editjeniscuti'])->name('admin.editjeniscuti');
+Route::post('/admin/post-editjeniscuti', [AdminController::class,'postEditjeniscuti']); 
+
+Route::get('admin/pegawai', [AdminController::class,'pegawai'])->name('admin.pegawai');
+Route::get('/admin/addpegawai', [AdminController::class,'addpegawai'])->name('admin.addpegawai');
+Route::post('/admin/post-addpegawai', [AdminController::class,'postAddpegawai']); 
+Route::get('/admin/editpegawai/{id}',  [AdminController::class,'editpegawai'])->name('admin.editpegawai');
+Route::post('/admin/post-editpegawai', [AdminController::class,'postEditpegawai']); 
+
+
+
 //jenis
 Route::get('admin/jenis', [AdminController::class,'jenis'])->name('admin.jenis');
 //periode

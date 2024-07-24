@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2024-07-04 21:23:27
+Date: 2024-07-24 13:49:38
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -19,16 +19,13 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 DROP TABLE IF EXISTS `admin`;
 CREATE TABLE `admin` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `username` varchar(255) NOT NULL,
-  `nama` varchar(255) DEFAULT NULL,
-  `nip` varchar(40) DEFAULT NULL,
-  `email` varchar(255) NOT NULL,
-  `email_verified_at` timestamp NULL DEFAULT NULL,
-  `level` char(1) DEFAULT NULL,
+  `id` int(3) unsigned NOT NULL AUTO_INCREMENT,
+  `id_admin` varchar(3) DEFAULT '',
+  `username` varchar(100) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `remember_token` varchar(100) DEFAULT NULL,
-  `status_aktif` char(1) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `level` char(1) DEFAULT '',
+  `status_aktif` char(1) DEFAULT '',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
@@ -38,28 +35,8 @@ CREATE TABLE `admin` (
 -- ----------------------------
 -- Records of admin
 -- ----------------------------
-INSERT INTO admin VALUES ('101', 'admin', null, null, 'dahrul.ulum@gmail.com', null, '1', '$2y$10$K9o5RXw.2qeujixYtl17ROaQch6w3mydLdXkbFLW68AgXEMGzDs0y', null, null, '2020-06-25 14:12:55', null, '2021-01-10 23:00:55');
-INSERT INTO admin VALUES ('271', 'dafa', null, null, 'dafapratama.muharam@gmail.com', null, '2', '$2y$10$K9o5RXw.2qeujixYtl17ROaQch6w3mydLdXkbFLW68AgXEMGzDs0y', null, '1', '2024-06-22 20:24:53', '2024-06-22 20:24:53', null);
-
--- ----------------------------
--- Table structure for `admin_old`
--- ----------------------------
-DROP TABLE IF EXISTS `admin_old`;
-CREATE TABLE `admin_old` (
-  `id_admin` int(3) NOT NULL AUTO_INCREMENT,
-  `username` varchar(15) DEFAULT NULL,
-  `password` varchar(100) DEFAULT '',
-  `level` char(1) DEFAULT '',
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  `deleted_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id_admin`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- ----------------------------
--- Records of admin_old
--- ----------------------------
-INSERT INTO admin_old VALUES ('1', 'admin', '$2y$10$K9o5RXw.2qeujixYtl17ROaQch6w3mydLdXkbFLW68AgXEMGzDs0y', '1', null, null, null);
+INSERT INTO admin VALUES ('101', null, 'admin', '$2y$10$K9o5RXw.2qeujixYtl17ROaQch6w3mydLdXkbFLW68AgXEMGzDs0y', 'dahrul.ulum@gmail.com', '1', '1', '2020-06-25 14:12:55', null, null);
+INSERT INTO admin VALUES ('271', null, 'dafa', '$2y$10$K9o5RXw.2qeujixYtl17ROaQch6w3mydLdXkbFLW68AgXEMGzDs0y', 'dafapratama.muharam@gmail.com', '2', '1', '2024-06-22 20:24:53', '2024-06-22 20:24:53', null);
 
 -- ----------------------------
 -- Table structure for `fppc`
@@ -105,16 +82,17 @@ CREATE TABLE `golongan` (
 DROP TABLE IF EXISTS `jabatan`;
 CREATE TABLE `jabatan` (
   `kd_jabatan` int(3) NOT NULL AUTO_INCREMENT,
-  `nama_jabatan` varchar(100) DEFAULT NULL,
+  `nm_jabatan` varchar(100) DEFAULT '',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`kd_jabatan`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- ----------------------------
 -- Records of jabatan
 -- ----------------------------
+INSERT INTO jabatan VALUES ('1', 'Sekretaris', '2024-07-24 05:59:18', '2024-07-24 05:59:18', null);
 
 -- ----------------------------
 -- Table structure for `jeniscuti`
@@ -123,12 +101,16 @@ DROP TABLE IF EXISTS `jeniscuti`;
 CREATE TABLE `jeniscuti` (
   `kd_jenis_cuti` int(3) NOT NULL AUTO_INCREMENT,
   `nm_jenis_cuti` varchar(100) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`kd_jenis_cuti`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- ----------------------------
 -- Records of jeniscuti
 -- ----------------------------
+INSERT INTO jeniscuti VALUES ('1', 'Cuti Tahunan', '2024-07-24 06:09:05', '2024-07-24 06:12:02', null);
 
 -- ----------------------------
 -- Table structure for `pangkat`
@@ -154,13 +136,17 @@ DROP TABLE IF EXISTS `pegawai`;
 CREATE TABLE `pegawai` (
   `id_pegawai` int(3) NOT NULL AUTO_INCREMENT,
   `nip` varchar(15) DEFAULT NULL,
-  `nama_pegawai` varchar(40) DEFAULT NULL,
+  `nama_pegawai` varchar(100) DEFAULT '',
   `masa_kerja` text DEFAULT NULL,
-  `jenis_kelamin` char(1) DEFAULT NULL,
+  `jenkel` char(1) DEFAULT '',
   `alamat` text DEFAULT NULL,
-  `no_telepon` varchar(15) DEFAULT NULL,
-  `username` varchar(15) DEFAULT NULL,
+  `nohp` varchar(15) DEFAULT '',
+  `username` varchar(100) DEFAULT '',
   `password` varchar(100) DEFAULT NULL,
+  `kd_pangkat` varchar(10) DEFAULT NULL,
+  `kd_jabatan` varchar(10) DEFAULT NULL,
+  `kd_golongan` varchar(10) DEFAULT NULL,
+  `kd_unitkerja` varchar(10) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
@@ -201,14 +187,16 @@ CREATE TABLE `permohonan_cuti` (
 -- ----------------------------
 DROP TABLE IF EXISTS `unitkerja`;
 CREATE TABLE `unitkerja` (
-  `kd_unit_kerja` int(3) DEFAULT NULL,
-  `nm_unit_kerja` varchar(100) DEFAULT NULL,
+  `kd_unitkerja` int(3) NOT NULL AUTO_INCREMENT,
+  `nm_unitkerja` varchar(100) DEFAULT '',
   `alamat` text DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `deleted_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`kd_unitkerja`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- ----------------------------
 -- Records of unitkerja
 -- ----------------------------
+INSERT INTO unitkerja VALUES ('1', 'Bidang Sekretariat', '<p>Jl. Leparpongok No.222</p>', '2024-07-24 04:25:07', '2024-07-24 04:28:51', null);

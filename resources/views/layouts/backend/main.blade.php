@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>SIGANAK :: DP3ACSKB</title>
+    <title>SIMTI :: DINAS PENDIDIKAN PROV. BABEL</title>
 
     <!-- Font Awesome -->
   <link rel="stylesheet" href="{{url('lte/plugins/fontawesome-free/css/all.min.css') }}">

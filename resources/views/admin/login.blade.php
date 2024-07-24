@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>DP3ACSKB :: SIGANAK</title>
+    <title>CUTI :: DINAS PENDIDIKAN PROV. BABEL</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
@@ -38,7 +38,7 @@
                         @csrf
 
                         <div class="form-group">
-                            <label for="email" class="text-light">{{ __('Username / NIP ') }}</label>
+                            <label for="email" class="text-light">{{ __('Username   ') }}</label>
 
                             <div class="">
                                 <input id="username" type="text" class="form-control  " name="username" value="{{ old('username') }}" required autocomplete="username" placeholder="username" autofocus>
