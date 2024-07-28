@@ -9,7 +9,7 @@
      
    
     <li class="nav-item ">
-        <a class="nav-link <?php if(Request::segment(2)=='pengajuancuti'){echo 'active';} ?>" href="<?= url('/admin/pengajuancuti/'); ?>">
+        <a class="nav-link <?php if(Request::segment(2)=='ajucuti'){echo 'active';} ?>" href="<?= url('/admin/ajucuti/'); ?>">
             <i class="nav-icon fas fa-table"></i>  <p>Pengajuan Cuti </p>
         </a>
     </li>

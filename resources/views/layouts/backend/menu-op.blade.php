@@ -4,28 +4,20 @@
             <i class="nav-icon fas fa-home"></i>  <p>Dashboard {{ Auth::guard('admin')->user()->id_instansi }}</p>
         </a>
     </li>
-    <li class="nav-header">Instrumen Data</li>
-     @php 
-        $idwilayah=Auth::guard('admin')->user()->id_wilayah;
-        if(!empty(Auth::guard('admin')->user()->id_wilayah)){
-            $idwilayah=Auth::guard('admin')->user()->id_wilayah;
-        }else{
-            $idwilayah=1;
-        }
-
-     @endphp
+    <li class="nav-header">Permohonan Cuti Pegawai</li>
+    
     <li class="nav-item ">
-        <a class="nav-link <?php if(Request::segment(2)=='nilai'){echo 'active';} ?>" href="<?= url('/admin/nilai/'.$idwilayah) ?>">
-            <i class="nav-icon fas fa-table"></i>  <p> Nilai Elemen Data</p>
+        <a class="nav-link <?php if(Request::segment(2)=='ajucuti'){echo 'active';} ?>" href="<?= url('/admin/ajucuti/'); ?>">
+            <i class="nav-icon fas fa-table"></i>  <p>Pengajuan Cuti </p>
         </a>
     </li>
     
-    <li class="nav-header">Report</li>
+    <li class="nav-header">Riwayat Cuti</li>
      
    
     <li class="nav-item ">
-        <a class="nav-link <?php if(Request::segment(2)=='laporan'){echo 'active';} ?>" href="<?= url('/admin/laporan/'.$idwilayah); ?>">
-            <i class="nav-icon fas fa-table"></i>  <p>Laporan Elemen Data</p>
+        <a class="nav-link <?php if(Request::segment(2)=='laporan'){echo 'active';} ?>" href="<?= url('/admin/laporan/'); ?>">
+            <i class="nav-icon fas fa-table"></i>  <p>Laporan Riwayat Cuti</p>
         </a>
     </li>
      

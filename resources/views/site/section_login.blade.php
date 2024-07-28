@@ -16,7 +16,7 @@
                       @csrf
   
                       <div class="form-group">
-                          <label for="email" class="text-light">{{ __('Username / N.I.P') }}</label>
+                          <label for="email" class="text-light">{{ __('Username ') }}</label>
   
                           <div class="">
                               <input id="username" type="text" class="form-control " name="username" value="{{ old('username') }}" required autocomplete="username" placeholder="username" autofocus>

@@ -25,7 +25,7 @@ use App\Http\Controllers\FrontController;
 //     return view('welcome');
 // });
 Route::get('/', [FrontController::class,'index']);
-
+Route::post('pegawai/postlogin', [FrontController::class,'postLogin']);
 //admin
 Route::get('admin', [AdminController::class,'index'])->name('admin.index');
 Route::get('admin/login', [AdminController::class,'index'])->name('admin.login');
@@ -86,8 +86,13 @@ Route::post('/admin/post-addpegawai', [AdminController::class,'postAddpegawai'])
 Route::get('/admin/editpegawai/{id}',  [AdminController::class,'editpegawai'])->name('admin.editpegawai');
 Route::post('/admin/post-editpegawai', [AdminController::class,'postEditpegawai']); 
 
+//aju cuti
+Route::get('admin/ajucuti', [AdminController::class,'ajucuti'])->name('admin.ajucuti');
+Route::get('/admin/addajucuti', [AdminController::class,'addajucuti'])->name('admin.addajucuti');
+Route::post('/admin/post-addajucuti', [AdminController::class,'postAddajucuti']); 
 
 
+Route::get('/admin/printajucuti/{id}',  [AdminController::class,'printajucuti'])->name('admin.printajucuti');
 //jenis
 Route::get('admin/jenis', [AdminController::class,'jenis'])->name('admin.jenis');
 //periode

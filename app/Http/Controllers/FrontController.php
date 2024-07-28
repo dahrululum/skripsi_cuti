@@ -37,4 +37,37 @@ class FrontController extends Controller
               ]);
         
     }
+    public function postLogin(Request $request)
+    {
+        // $this->validate($request, [
+        //     'username' => 'required',
+        //     'password' => 'required|min:5'
+        // ]);
+       
+        $attempt = Auth::guard('admin')->attempt([
+          'username' => $request->input('username'),
+          'password' => $request->input('password')
+        ]);
+
+        if($attempt){
+        //if (auth()->guard('admin')->attempt($request->only('username', 'password'))) {
+          
+            $request->session()->regenerate();
+            
+            return redirect()->intended('/admin');
+            
+        } else {
+            
+            /*    
+            return redirect()
+                ->back()
+                ->withInput()
+                ->withErrors(["Incorrect user login details!"]);
+                */
+                return back()->withErrors([
+                    'username' => 'Username tidak sesuai, silahkan ulangi.',
+                    'password' => 'Password tidak sesuai.',
+                ]);
+        }
+    }
 }

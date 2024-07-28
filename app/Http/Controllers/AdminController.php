@@ -830,26 +830,43 @@ class AdminController extends Controller
         'id_pegawai'          => $request['id_pegawai'],
         'nama_pegawai'        => $request['nama_pegawai'],
         'nip'                 => $request['nip'],
+       
         'masa_kerja'          => $request['masa_kerja'],
         'jenkel'              => $request['jenkel'],
         'alamat'              => $request['alamat'],
         'nohp'                => $request['nohp'],
-        'username'                => $request['username'],
-        'password'                => $request['password'],
-            
+        'username'            => $request['username'],
+        'password'            => Hash::make($request['password']),
+        'kd_pangkat'          => $request['kd_pangkat'],
+        'kd_jabatan'          => $request['kd_jabatan'],
+        'kd_golongan'         => $request['kd_golongan'],
+        'kd_unitkerja'        => $request['kd_unitkerja'],    
             
           ]);
-       
+          Admin::create([
+            'id_admin' => $request['id_pegawai'],
+            'username' => $request['nip'],
+            'level' => 2,
+            'password' => Hash::make($request['password'])
+          ]);
         return Redirect::to("/admin/pegawai")->with('success','Selamat, Anda berhasil untuk menambah pegawai');
     }
 
     public function editpegawai($id)
     {
-        $un = Pegawai::where('id_pegawai', $id)->first();
-         
+        $peg = Pegawai::where('id_pegawai', $id)->first();
+        $un = Unitkerja::all();
+        $pa = Pangkat::all();
+        $jab = Jabatan::all();
+        $gol = Golongan::all();
+
           return view('admin/editpegawai',[
             'layout' => $this->layout,
-            'un'   =>$un,
+            'peg'   =>$peg,
+            'un'   => $un,
+            'pa'   => $pa,
+            'jab'   => $jab,
+            'gol'   => $gol,
            
         ]);
 
@@ -868,7 +885,11 @@ class AdminController extends Controller
                     'jenkel'              => $request['jenkel'],
                     'alamat'              => $request['alamat'],
                     'nohp'                => $request['nohp'],
-                  
+                    'kd_pangkat'          => $request['kd_pangkat'],
+                    'kd_jabatan'          => $request['kd_jabatan'],
+                    'kd_golongan'         => $request['kd_golongan'],
+                    'kd_unitkerja'        => $request['kd_unitkerja'], 
+                     
                 
                 
             ]);
@@ -884,8 +905,10 @@ class AdminController extends Controller
     public function delpegawai($id)
     {
         if(Auth::guard('admin')->check()){      
-            $un = Pegawai::where('id_pegawai', $id)->first();
-            $un->delete();
+            $peg = Pegawai::where('id_pegawai', $id)->first();
+            $peg->delete();
+            $adm = Admin::where('id_admin', $id)->first();
+            $adm->delete();
             return Redirect::to("/admin/pegawai")->with('success',' Proses Delete pegawai berhasil.');
         }else{
             return view('admin.login',[
@@ -895,8 +918,130 @@ class AdminController extends Controller
        
     }
     
-    
+    //aju cuti 
+    // 28 juli 2024
+    public function ajucuti(){
+      if(Auth::guard('admin')->check()){  
+        $jc = Jeniscuti::all();
+        $jab = Jabatan::all();
+        $un = Unitkerja::all();
+        $pa = Pangkat::all();
+        $gol = Golongan::all();
+        $peg = Pegawai::all();
+        $aju = Ajucuti::all();
+        
 
+        return view('admin/ajucuti' , [
+          'layout'  => $this->layout,
+          'un'      => $un,
+          'jab'     => $jab,
+          'pa'      => $pa,
+          'gol'     => $gol,
+          'peg'     => $peg,
+          'jc'      => $jc,
+          'aju'     => $aju,
+          
+         
+         
+        ]);
+      }else{
+        return view('admin.login',[
+            'layout' => $this->layout 
+          ]);
+        }
+    }
+    public function addajucuti()
+    {
+        if(Auth::guard('admin')->check()){  
+          $levuser= Auth::guard('admin')->user()->level;
+          $iduser= Auth::guard('admin')->user()->id_admin;
+          if($levuser==1){
+            $peg = Pegawai::all();
+          }else{
+            $peg = Pegawai::where('id_pegawai',$iduser)->first();
+          }
+          
+          $jc = Jeniscuti::all();
+          $jab = Jabatan::all();
+          $un = Unitkerja::all();
+          $pa = Pangkat::all();
+          $gol = Golongan::all();
+          
+            $maxValue = Ajucuti::max('id');
+            $nourut = $maxValue+1;
+           
+            return view('admin/addajucuti',[
+            'layout'    => $this->layout,
+            'nourut'    => $nourut,
+            'peg'       => $peg,
+            'jc'        => $jc,
+            'levuser'   => $levuser,
+            'iduser'   => $levuser,
+            'un'      => $un,
+            'jab'     => $jab,
+            'pa'      => $pa,
+            'gol'     => $gol,
+
+           
+            
+            ]);
+        }else{
+            return view('admin.login',[
+                'layout' => $this->layout 
+              ]);
+            }        
+       // return view('register');
+    }
+    public function postAddajucuti(Request $request)
+    {  
+      $uniqid=uniqid();
+        
+      Ajucuti::create([
+        'id_pegawai'          => $request['id_pegawai'],
+        'no_pc'               => $request['nopc'],
+        'tgl_pc'              => $request['tglpc'],
+        'jenis_cuti'          => $request['jenis_cuti'],
+        'alias'               => $uniqid,
+        'tgl_mulai'           => $request['tglawal'],
+        'tgl_selesai'         => $request['tglakhir'],
+        'lama_cuti'           => $request['lamacuti'],
+        'alamat_cuti'         => $request['alamatcuti'],
+        'alasan'              => $request['alasancuti'],
+       
+            
+          ]);
+         
+        return Redirect::to("/admin/ajucuti")->with('success','Selamat, Anda berhasil untuk menambah permohonan cuti pegawai');
+    }
+
+    public function printajucuti($id)
+    {
+        if(Auth::guard('admin')->check()){  
+                $hs = Ajucuti::where('id',$id)->first();
+                $idaju=$hs->id;
+                $tglawal=$hs->tgl_mulai;
+                $tglakhir=$hs->tgl_selesai;
+                $tglawal1 = $tglawal." 00:00:00";
+                $tglakhir1 = $tglakhir." 23:59:00";
+
+
+             
+
+                return view('admin.print_ajucuti' , [
+                    'layout'        => $this->layout,
+                    'hs'            => $hs,
+                   
+                    'tglawal'       => $tglawal,
+                    'tglakhir'      => $tglakhir,
+                     
+                     
+            ]);
+        }else{
+                return view('admin.login',[
+                    'layout' => $this->layout 
+                  ]);
+                }
+    }
     public function authenticate(Request $request)
     {
         $credentials = $request->only('email', 'password');

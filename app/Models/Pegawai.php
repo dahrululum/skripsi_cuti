@@ -20,7 +20,27 @@ class Pegawai extends Model
         'nohp',
         'username',
         'password',
+        'kd_pangkat',
+        'kd_jabatan',
+        'kd_golongan',
+        'kd_unitkerja',    
         
          
     ];
+    public function getUN()
+    {
+        return $this->hasOne(Unitkerja::class,'kd_unitkerja','kd_unitkerja')->withDefault();
+    }
+    public function getJAB()
+    {
+        return $this->hasOne(Jabatan::class,'kd_jabatan','kd_jabatan')->withDefault();
+    }
+    public function getPANG()
+    {
+        return $this->hasOne(Pangkat::class,'kd_pangkat','kd_pangkat')->withDefault();
+    }
+    public function getGOL()
+    {
+        return $this->hasOne(Golongan::class,'kd_golongan','kd_golongan')->withDefault();
+    }
 }

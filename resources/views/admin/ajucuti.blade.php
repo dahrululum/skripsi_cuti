@@ -25,43 +25,47 @@
      
     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Daftar Pegawai</h3>
+                            <h3 class="card-title">Daftar Cuti Pegawai</h3>
                         </div>    
                     <div class="card-body">
                         <div class="card-body table-responsive p-0">
-                        <a class="btn btn-success" href="{{ URL::to('/admin/addpegawai')}}"><i class="fa fa-user"></i> Tambah Pegawai</a>
+                        <a class="btn btn-success" href="{{ URL::to('/admin/addajucuti')}}"><i class="fa fa-user"></i> Tambah Permohonan Cuti</a>
                         <br><br>
 
                             <table class="table table-sm table-hover text-nowrap table-bordered" id="tablena">
                                 <thead class="bg-info">
                                 <tr>
                                      
-                                    <th> ID Pegawai </th>
+                                    
                                     <th> Nama Pegawai </th>
                                     <th> NIP Pegawai </th>
-                                    <th> Unit Kerja </th>
-                                    <th> Jabatan </th>
-                                    <th> Pangkat/Golongan </th>
+                                    <th> Jenis cuti </th>
+                                    <th> Tanggal Awal Cuti </th>
+                                    <th> Tanggal Akhir Cuti </th>
+                                    <th> Alasan </th>
+                                     
                                     <th> #  </th>
 
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($un as $un)
+                                    @foreach ($aju as $aju)
                                     <?php 
                                        
                                     ?>
                                     <tr>
-                                        <td>{{ $un->id_pegawai }}</td>
+                                       
                                         
-                                        <td>{{ $un->nama_pegawai }}</td>
-                                        <td>{{ $un->nip }}</td>
-                                        <td>{{ $un->getUN->nm_unitkerja }}</td>
-                                        <td>{{ $un->getJAB->nm_jabatan }}</td>
-                                        <td>{{ $un->getPANG->nm_pangkat }}  {{ $un->getGOL->nm_golongan }}</td>
-                                        <td>
-                                            <a class="btn btn-success btn-xs" href="{{ URL::to('/admin/editpegawai/'.$un->id_pegawai) }}"><i class="fa fa-edit"></i> Edit</a>
-                                            <a class="btn btn-danger btn-xs" href="{{ URL::to('/admin/delpegawai/'.$un->id_pegawai) }}"><i class="fa fa-trash"></i> Delete</a>
+                                        <td>{{ $aju->getPEG->nama_pegawai }}</td>
+                                        <td>{{ $aju->getPEG->nip }}</td>
+                                        <td>{{ $aju->getJC->nm_jenis_cuti }} </td>
+                                        <td>{{ $aju->tgl_mulai }} </td>
+                                        <td>{{ $aju->tgl_selesai }}</td>
+                                        <td>{{ $aju->alasan }}</td>
+                                         
+                                        <td class="text-center">
+                                            <a class="btn btn-success btn-xs" href="{{ URL::to('/admin/editajucuti/'.$aju->id) }}"><i class="fa fa-edit"></i> Edit</a>
+                                            <a class="btn btn-dark btn-xs" href="{{ URL::to('/admin/printajucuti/'.$aju->id) }}" target="_blank"><i class="fa fa-print"></i> Print</a>
                                          </td>
                                     </tr>
                                     @endforeach
