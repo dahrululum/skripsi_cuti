@@ -21,6 +21,7 @@ use App\Models\Pangkat;
 use App\Models\Admin;
 use App\Models\Ajucuti;
 use App\Models\Pegawai;
+use App\Models\Fppc;
 
 use Session;
 use Carbon;
@@ -1042,6 +1043,124 @@ class AdminController extends Controller
                   ]);
                 }
     }
+
+    //fppc  
+    // 29 juli 2024
+    public function verifikasicuti(){
+      if(Auth::guard('admin')->check()){  
+        $jc = Jeniscuti::all();
+        $jab = Jabatan::all();
+        $un = Unitkerja::all();
+        $pa = Pangkat::all();
+        $gol = Golongan::all();
+        $peg = Pegawai::all();
+        $aju = Ajucuti::all();
+        $fppc = Fppc::all();
+        
+
+        return view('admin/verifikasicuti' , [
+          'layout'    => $this->layout,
+          'un'        => $un,
+          'jab'       => $jab,
+          'pa'        => $pa,
+          'gol'       => $gol,
+          'peg'       => $peg,
+          'jc'        => $jc,
+          'aju'       => $aju,
+          'fppc'      => $fppc,
+          
+         
+         
+        ]);
+      }else{
+        return view('admin.login',[
+            'layout' => $this->layout 
+          ]);
+        }
+    }
+
+    public function addfppc()
+    {
+        if(Auth::guard('admin')->check()){  
+          $levuser= Auth::guard('admin')->user()->level;
+          $iduser= Auth::guard('admin')->user()->id_admin;
+          if($levuser==1){
+            $peg = Pegawai::all();
+          }else{
+            $peg = Pegawai::where('id_pegawai',$iduser)->first();
+          }
+          
+          $jc = Jeniscuti::all();
+          $jab = Jabatan::all();
+          $un = Unitkerja::all();
+          $pa = Pangkat::all();
+          $gol = Golongan::all();
+          $aju = Ajucuti::all();
+            $maxValue = Fppc::max('id');
+            $nourut = $maxValue+1;
+           
+            return view('admin/addfppc',[
+            'layout'    => $this->layout,
+            'nourut'    => $nourut,
+            'peg'       => $peg,
+            'jc'        => $jc,
+            'levuser'   => $levuser,
+            'iduser'   => $levuser,
+            'un'      => $un,
+            'jab'     => $jab,
+            'pa'      => $pa,
+            'gol'     => $gol,
+            'aju'       => $aju,
+
+           
+            
+            ]);
+        }else{
+            return view('admin.login',[
+                'layout' => $this->layout 
+              ]);
+            }        
+       // return view('register');
+    }
+    public function dialogcarinopc()
+    {
+          if(Auth::guard('admin')->check()){  
+            
+            $aju = Ajucuti::all();
+              //return view('/pelamar/datatable', compact('pelamars'));
+                  return view('admin.dialog_cari_nopc' , [
+                      'layout' => $this->layout,
+                      'aju'       => $aju,
+                      
+                       
+                       
+              ]);
+          }else{
+                  return view('admin.login',[
+                      'layout' => $this->layout 
+                    ]);
+                  }
+    }
+    public function detailpegawai($id)
+    {
+          if(Auth::guard('admin')->check()){  
+            
+            $peg = Pegawai::where('id_pegawai',$id)->first();
+              //return view('/pelamar/datatable', compact('pelamars'));
+                  return view('admin.detail_pegawai' , [
+                      'layout' => $this->layout,
+                      'peg'       => $peg,
+                      
+                       
+                       
+              ]);
+          }else{
+                  return view('admin.login',[
+                      'layout' => $this->layout 
+                    ]);
+                  }
+    }
+
     public function authenticate(Request $request)
     {
         $credentials = $request->only('email', 'password');

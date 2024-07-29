@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2024-07-28 23:38:59
+Date: 2024-07-29 23:51:48
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -47,6 +47,7 @@ CREATE TABLE `fppc` (
   `id` int(3) NOT NULL AUTO_INCREMENT,
   `no_fppc` varchar(20) DEFAULT NULL,
   `tgl_fppc` date DEFAULT NULL,
+  `no_pc` varchar(10) DEFAULT NULL,
   `catatan_cuti` varchar(50) DEFAULT NULL,
   `atasan_langsung` varchar(20) DEFAULT NULL,
   `catatan_atasan` varchar(50) DEFAULT NULL,

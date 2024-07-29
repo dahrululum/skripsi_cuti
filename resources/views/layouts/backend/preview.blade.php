@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Preview SURVEI </title>
+    <title>Preview Permohonan Cuti </title>
 
     <!-- Font Awesome -->
   <link rel="stylesheet" href="{{url('lte/plugins/fontawesome-free/css/all.min.css') }}">

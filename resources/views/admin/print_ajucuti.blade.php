@@ -72,12 +72,19 @@
     <!-- /.col -->
   </div>
  
- 
+  <div class="row p-2">
+    <div class="col-sm-12">
+        Dengan hormat, <br>
+        Saya yang bertandatangan dibawah ini :
+
+
+    </div>
+  </div>
   <div class="row p-2">
     
     <!-- /.col -->
     <div class="col-sm-1 "> </div>
-    <div class="col-sm-6   my-2">
+    <div class="col-sm-6  my-2">
         <table class=" col-12">
             <tr>
                 <td class="col-sm-4">Nama   </td>
@@ -118,32 +125,24 @@
                 <td class="col-sm-4" colspan="3"> &nbsp; </td>
                  
             </tr>
-            <tr>
-                <td class="col-sm-4">Jenis Cuti   </td>
-                <td class="col-sm-1">:</td>
-                <td> {{ $hs->getJC->nm_jenis_cuti }}</td>
-            </tr>
-            <tr>
-                <td class="col-sm-4">Tanggal Cuti   </td>
-                <td class="col-sm-1">:</td>
-                <td> <b>{{ $tglawalna }}</b>  s/d <b> {{ $tglakhirna }}</b></td>
-            </tr>
-            <tr>
-                <td class="col-sm-4">Lama Cuti   </td>
-                <td class="col-sm-1">:</td>
-                <td> {{ $hs->lama_cuti }} hari</td>
-            </tr>
-            <tr>
-                <td class="col-sm-4">Alasan Cuti   </td>
-                <td class="col-sm-1">:</td>
-                <td> {{ $hs->alasan }}</td>
-            </tr>
+             
             
         </table>
     </div>
     <!-- /.col -->
   </div>
-  <div class="row my-4  " style="height: 100px;">&nbsp;</div>
+  <div class="row my-4 p-2">
+    <div class="col-sm-12 ">
+        Dengan ini mengajukan cuti <b>{{ $hs->getJC->nm_jenis_cuti }}</b>, mulai dari <b>{{ $tglawalna }}</b>  s/d <b> {{ $tglakhirna }}</b> <br> 
+        selama <b>{{ $hs->lama_cuti }}</b>  hari <br>
+        Adapun alasan saya mengajukan cuti adalah <b>{{ $hs->alasan }}</b>
+        <br><br>
+        Demikian permohonan ini saya sampaikan, atas perhatian Bapak/Ibu saya ucapkan terimakasih.
+    </div>
+    
+  </div>
+
+  <div class="row my-2  " style="height: 20px;">&nbsp;</div>
   <div class="row my-4">
     <div class="col-sm-5  ">
         <table class="text-center col-12">
@@ -171,6 +170,25 @@
                 <td> 
                     <div class="border-bottom">{{ $hs->getPEG->nama_pegawai }}</div>
                     <div>{{ $hs->getPEG->nip }}</div>
+                    
+                </td>
+            </tr>
+        </table>
+    </div>
+  </div>
+  <div class="row my-2  border-top" style="height: 20px;">&nbsp;</div>
+  <div class="row my-4   p-2" >
+    <div class="col-sm-2  ">
+        <table class="text-center col-12">
+            <tr>
+                <td>Tanggapan dan Persetujuan Kepala Dinas</td>
+            </tr>
+            <tr>
+                <td>  <p>&nbsp;</p> <p>&nbsp;</p></td>
+            </tr>
+            <tr>
+                <td> 
+                    ( ................................ )
                     
                 </td>
             </tr>

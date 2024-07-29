@@ -91,8 +91,16 @@ Route::get('admin/ajucuti', [AdminController::class,'ajucuti'])->name('admin.aju
 Route::get('/admin/addajucuti', [AdminController::class,'addajucuti'])->name('admin.addajucuti');
 Route::post('/admin/post-addajucuti', [AdminController::class,'postAddajucuti']); 
 
-
 Route::get('/admin/printajucuti/{id}',  [AdminController::class,'printajucuti'])->name('admin.printajucuti');
+
+//fppc
+Route::get('admin/verifikasicuti', [AdminController::class,'verifikasicuti'])->name('admin.verifikasicuti');
+Route::get('/admin/addfppc', [AdminController::class,'addfppc'])->name('admin.addfppc');
+Route::post('/admin/post-addfppc', [AdminController::class,'postAddfppc']); 
+
+Route::get('admin/dialog_cari_nopc', [AdminController::class,'dialogcarinopc'])->name('admin.dialogcarinopc');
+Route::get('admin/detail_pegawai/{id}', [AdminController::class,'detailpegawai'])->name('admin.detailpegawai');
+
 //jenis
 Route::get('admin/jenis', [AdminController::class,'jenis'])->name('admin.jenis');
 //periode

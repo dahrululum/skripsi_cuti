@@ -14,8 +14,8 @@
         </a>
     </li>
     <li class="nav-item ">
-        <a class="nav-link <?php if(Request::segment(2)=='laporan'){echo 'active';} ?>" href="<?= url('/admin/verifikasicuti/'); ?>">
-            <i class="nav-icon fas fa-table"></i>  <p>Verifikasi Cuti </p>
+        <a class="nav-link <?php if(Request::segment(2)=='verifikasicuti'){echo 'active';} ?>" href="<?= url('/admin/verifikasicuti/'); ?>">
+            <i class="nav-icon fas fa-table"></i>  <p>FPPC  </p>
         </a>
     </li>
     <li class="nav-header">Laporan</li>
