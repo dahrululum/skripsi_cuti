@@ -22,15 +22,11 @@
      
    
     <li class="nav-item ">
-        <a class="nav-link <?php if(Request::segment(2)=='publikasi'){echo 'active';} ?>" href="<?= url('/admin/publikasi/'); ?>">
-            <i class="nav-icon fas fa-table"></i>  <p>Publikasi  </p>
+        <a class="nav-link <?php if(Request::segment(2)=='rekapcuti'){echo 'active';} ?>" href="<?= url('/admin/rekapcuti/'); ?>">
+            <i class="nav-icon fas fa-table"></i>  <p>Rekap Cuti  </p>
         </a>
     </li>
-    <li class="nav-item ">
-        <a class="nav-link <?php if(Request::segment(2)=='weblink'){echo 'active';} ?>" href="<?= url('/admin/weblink/'); ?>">
-            <i class="nav-icon fas fa-table"></i>  <p>Informasi  </p>
-        </a>
-    </li>
+     
     
     <li class="nav-header">MASTER</li>
      

@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2024-07-29 23:51:48
+Date: 2024-07-30 20:59:11
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -55,11 +55,12 @@ CREATE TABLE `fppc` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- ----------------------------
 -- Records of fppc
 -- ----------------------------
+INSERT INTO fppc VALUES ('1', '1', '2024-07-05', '2', 'sdfs dfsdfsdfsdfsdf sdfsdfsdfsdfsdf', 'Sahawelah', 'qweqweq qweqweqweqwe', '2024-07-30 11:37:53', '2024-07-30 11:37:53', null);
 
 -- ----------------------------
 -- Table structure for `golongan`
@@ -216,12 +217,13 @@ CREATE TABLE `permohonan_cuti` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- ----------------------------
 -- Records of permohonan_cuti
 -- ----------------------------
 INSERT INTO permohonan_cuti VALUES ('1', '1', '3', '1', '2024-07-03', '66a667e2b84ef', '2024-07-04', '2024-07-08', '2', 'urusan keluarga', null, 'di bandung', '2024-07-28 15:46:42', '2024-07-28 15:46:42', null);
+INSERT INTO permohonan_cuti VALUES ('2', '1', '2', '2', null, '66a8ce6f089db', '2024-07-01', '2024-07-02', '2', 'Sakit Demam Berdarah', null, 'Rumah', '2024-07-30 11:28:47', '2024-07-30 11:28:47', null);
 
 -- ----------------------------
 -- Table structure for `unitkerja`

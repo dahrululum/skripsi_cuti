@@ -25,13 +25,14 @@
      
     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Daftar FPPC</h3>
+                            <h3 class="card-title">Rekap Cuti Pegawai</h3>
+                            <div class="card-tools">
+                                 <a href="{{ URL::to('/admin/printrekapcuti') }}" class="btn btn-sm btn-success" target="_blank"> <i class="fa fa-print"></i> Print</a>
+                            </div>
                         </div>    
                     <div class="card-body">
                         <div class="card-body table-responsive p-0">
-                        <a class="btn btn-success" href="{{ URL::to('/admin/addfppc')}}"><i class="fa fa-user"></i> Tambah FPPC</a>
-                        <br><br>
-
+                        
                             <table class="table table-sm table-hover table-bordered" id="tablena">
                                 <thead class="bg-info">
                                 <tr>
@@ -44,8 +45,7 @@
                                     <th> Catatan cuti </th>
                                     <th> Atasan langsung </th>
                                     <th> Catatan Atasan </th>
-                                    <th> #  </th>
-
+                                    
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -69,10 +69,7 @@
                                         <td>{{ $fppc->catatan_cuti }}</td>
                                         <td>{{ $fppc->atasan_langsung }}</td>
                                         <td>{{ $fppc->catatan_atasan }}</td>
-                                        <td class="text-center">
-                                            
-                                            <a class="btn btn-dark btn-xs" href="{{ URL::to('/admin/printfppc/'.$fppc->no_fppc) }}" target="_blank"><i class="fa fa-print"></i> Print FPPC</a>
-                                         </td>
+                                         
                                     </tr>
                                     @endforeach
                                 </tbody>

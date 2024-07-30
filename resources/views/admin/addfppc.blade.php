@@ -117,76 +117,53 @@ $ ( function () {
                    {{ csrf_field() }}
                     
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label " for="judul">No FPPC</label>
+                        <label class="col-sm-2 col-form-label " for="nofppc">No FPPC</label>
                         <div class="col-sm-2">
-                        <input class="form-control form-control-sm " id="nopc" type="text" name="nopc" value="{{ $nourut }}"  readonly/>
+                        <input class="form-control form-control-sm " id="nofppc" type="text" name="nofppc" value="{{ $nourut }}"  readonly/>
                         
                         </div> 
                         <label class="col-sm-3 col-form-label text-right" for="judul">Tanggal FPPC</label>
                         <div class="col-sm-2">
-                            <input class="form-control form-control-sm datepicker" id="tglfppc" type="text" name="tglfppc" placeholder="" />
+                            <input class="form-control form-control-sm datepicker" id="tglfppc" type="text" name="tglfppc" required />
                             
                         </div> 
                     </div>
                      
                     <hr>
                     <div class="form-group row">
-                        <label for="inputEmail" class="col-sm-2">Pilih ID Permohonan Cuti</label>
+                        <label for="inputEmail" class="col-sm-2">Pilih No. Permohonan Cuti</label>
                         <div class="col-sm-1" id="ressnopc">
-                            <input class="form-control form-control-sm " id="nopc" type="text" name="nopc" placeholder="No. PC" readonly />
+                            <input class="form-control form-control-sm " id="nopc" type="text" name="nopc" placeholder="No. PC"   readonly />
                             
                         </div> 
                         <div class="col-sm-4">
-                            <a href="#modal_upload" data-toggle="modal" class="btn btn-sm btn-primary"  ><i class="fa fa-search"></i> Pilih ID Permohonan Cuti</a>
+                            <a href="#modal_upload" data-toggle="modal" class="btn btn-sm btn-primary"  ><i class="fa fa-search"></i> Pilih No. Permohonan Cuti</a>
                         </div>
                     </div>
                     <div id="detailpeg"></div>
                     <hr>
                     <div class="form-group row">
-                        <label for="" class="col-sm-2 col-form-label">Periode Cuti Pegawai </label>
-                        <div class="col-sm-2">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                  <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
-                                </div>
-                                <input type="text" class="form-control form-control-sm datepicker" id="tglawal" name="tglawal" value="" placeholder="Tanggal Awal" required >
-                            </div>
-                        </div>
-                        <div class="col-sm-1">
-                            <div class="text-center font-weight-bold mt-1">s/d</div>
-                            
-                       </div>
-                        <div class="col-sm-2">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                  <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
-                                </div>
-                                <input type="text" class="form-control form-control-sm datepicker" id="tglakhir" name="tglakhir" value="" placeholder="Tanggal Akhir" required >
-                            </div>
-                        </div>
-                        
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label" for="judul">lama Cuti</label>
-                        <div class="col-sm-2">
-                            <input class="form-control form-control-sm " id="lamacuti" type="number" name="lamacuti"    />
-                            
-                        </div> 
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-sm-2 col-form-label" for="judul">Alamat Cuti</label>
+                        <label class="col-sm-2 col-form-label" for="judul">Catatan Cuti</label>
                         <div class="col-sm-9">
-                            <input class="form-control form-control-sm " id="alamatcuti" type="text" name="alamatcuti"    />
+                            <input class="form-control form-control-sm " id="catatan_cuti" type="text" name="catatan_cuti"    />
+                            
+                        </div> 
+                    </div> 
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label" for="judul">Atasan Langsung </label>
+                        <div class="col-sm-5">
+                            <input class="form-control form-control-sm " id="atasan_langsung" type="text" name="atasan_langsung"  required  />
                             
                         </div> 
                     </div>
                     <div class="form-group row">
-                        <label class="col-sm-2 col-form-label" for="judul">Alasan</label>
-                        <div class="col-sm-10">
-                            <input class="form-control form-control-sm " id="alasancuti" type="text" name="alasancuti"     />
+                        <label class="col-sm-2 col-form-label" for="judul">Catatan Atasan</label>
+                        <div class="col-sm-9">
+                            <input class="form-control form-control-sm " id="catatan_atasan" type="text" name="catatan_atasan"    />
                             
                         </div> 
                     </div>
+                     
                    
                                 
                      

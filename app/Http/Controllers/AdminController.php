@@ -1122,6 +1122,51 @@ class AdminController extends Controller
             }        
        // return view('register');
     }
+    public function postAddfppc(Request $request)
+    {  
+      $uniqid=uniqid();
+        
+      Fppc::create([
+        'no_fppc'                 => $request['nofppc'],
+        'tgl_fppc'                => $request['tglfppc'],
+        'no_pc'                   => $request['nopc'],
+        'catatan_cuti'            => $request['catatan_cuti'],
+        'atasan_langsung'         => $request['atasan_langsung'],
+        'catatan_atasan'          => $request['catatan_atasan'],
+         
+            
+          ]);
+         
+        return Redirect::to("/admin/verifikasicuti")->with('success','Selamat, Anda berhasil untuk menambah FPPC');
+    }
+    //print fpppc
+    public function printfppc($id)
+    {
+        if(Auth::guard('admin')->check()){  
+                $hs = Fppc::where('id',$id)->first();
+                $idaju=$hs->id;
+                $tglawal=$hs->tgl_mulai;
+                $tglakhir=$hs->tgl_selesai;
+                $tglawal1 = $tglawal." 00:00:00";
+                $tglakhir1 = $tglakhir." 23:59:00";
+
+
+             
+
+                return view('admin.print_fppc' , [
+                    'layout'        => $this->layout,
+                    'hs'            => $hs,
+                 
+                     
+                     
+            ]);
+        }else{
+                return view('admin.login',[
+                    'layout' => $this->layout 
+                  ]);
+                }
+    }
+
     public function dialogcarinopc()
     {
           if(Auth::guard('admin')->check()){  
@@ -1185,6 +1230,45 @@ class AdminController extends Controller
                       'layout' => $this->layout 
                     ]);
                   }
+    }
+    //rekapcuti
+    public function rekapcuti(){
+      if(Auth::guard('admin')->check()){  
+      
+        $fppc = Fppc::all();
+        
+
+        return view('admin/rekapcuti' , [
+          'layout'  => $this->layout, 
+          'fppc'     => $fppc,
+          
+         
+         
+        ]);
+      }else{
+        return view('admin.login',[
+            'layout' => $this->layout 
+          ]);
+        }
+    }
+    public function printrekapcuti(){
+      if(Auth::guard('admin')->check()){  
+      
+        $fppc = Fppc::all();
+        
+
+        return view('admin/print_rekapcuti' , [
+          'layout'  => $this->layout, 
+          'fppc'     => $fppc,
+          
+         
+         
+        ]);
+      }else{
+        return view('admin.login',[
+            'layout' => $this->layout 
+          ]);
+        }
     }
     public function authenticate(Request $request)
     {
