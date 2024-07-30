@@ -99,8 +99,8 @@ Route::get('/admin/addfppc', [AdminController::class,'addfppc'])->name('admin.ad
 Route::post('/admin/post-addfppc', [AdminController::class,'postAddfppc']); 
 
 Route::get('admin/dialog_cari_nopc', [AdminController::class,'dialogcarinopc'])->name('admin.dialogcarinopc');
-Route::get('admin/detail_pegawai/{id}', [AdminController::class,'detailpegawai'])->name('admin.detailpegawai');
-
+Route::get('admin/detail_pegawai/{id}/{nopc}', [AdminController::class,'detailpegawai'])->name('admin.detailpegawai');
+Route::get('admin/dialog_riwayatcuti/{id}/{nopc}', [AdminController::class,'dialogriwayatcuti'])->name('admin.dialogriwayatcuti');
 //jenis
 Route::get('admin/jenis', [AdminController::class,'jenis'])->name('admin.jenis');
 //periode

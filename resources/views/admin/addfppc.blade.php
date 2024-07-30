@@ -34,20 +34,33 @@ $ ( function () {
         
         $("#viewupload").load(appurl);    
 
-    //   if($("#uniqid").val() == null){
-    //     $("#viewupload").html("<h4 class='text-danger text-center'><i class='fa fa-exclamation'></i> Uniq ID tidak boleh kosong</h4>");
-      
-    //   }else{
-       
-    //     $("#viewupload").load("dialog_upload/"+uniqid);
-    //   }
+    
  
+    });  
+    //riwayat
+    $('#modal_riwayatcuti').on('show.bs.modal', function(e) {
+
+        var idpegawai = $(e.relatedTarget).data('idpegawai');
+        var nopc = $(e.relatedTarget).data('nopc');
+        var button = $(e.relatedTarget) // Button that triggered the modal
+        
+        
+        var modal = $(this)
+        modal.find('.modal-title').text('Dialog Riwayat Cuti Pegawai ')
+
+        var appurl = {!! json_encode(url('/admin/dialog_riwayatcuti/')) !!};
+             var deturl = appurl+'/'+idpegawai+'/'+nopc;
+            
+            $("#viewriwayat").load(deturl);    
+
+
+
     });  
 
     function getBACK(nopc,idpegawai){
         $('#modal_upload').modal('hide');
             $('#ressnopc').html(" <input type='text' class='form-control form-control-sm' id='nopc' name='nopc' value='"+nopc+"' readonly required>");
-            $("#detailpeg").load("detail_pegawai/"+idpegawai);
+            $("#detailpeg").load("detail_pegawai/"+idpegawai+'/'+nopc);
            
            
            // console.log();  
@@ -76,7 +89,23 @@ $ ( function () {
       </div>
     </div>
 </div>
+<div class="modal fade"id="modal_riwayatcuti" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-xl ">
+      <div class="modal-content">
+        <div class="modal-header bg-primary">
+          <h4 class="modal-title">Dialog Riwayat Cuti Pegawai </h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div id="viewriwayat"></div>
+             
 
+        </div>
+      </div>
+    </div>
+</div>
 <div class="">
     <div class="row justify-content-center">
 	

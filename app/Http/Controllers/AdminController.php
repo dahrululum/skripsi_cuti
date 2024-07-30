@@ -1141,15 +1141,17 @@ class AdminController extends Controller
                     ]);
                   }
     }
-    public function detailpegawai($id)
+    public function detailpegawai($idpegawai,$nopc)
     {
           if(Auth::guard('admin')->check()){  
-            
-            $peg = Pegawai::where('id_pegawai',$id)->first();
+            $pc= ajucuti::where('no_pc',$nopc)->first();
+
+            $peg = Pegawai::where('id_pegawai',$idpegawai)->first();
               //return view('/pelamar/datatable', compact('pelamars'));
                   return view('admin.detail_pegawai' , [
-                      'layout' => $this->layout,
+                      'layout'    => $this->layout,
                       'peg'       => $peg,
+                      'pc'        => $pc,
                       
                        
                        
@@ -1160,7 +1162,30 @@ class AdminController extends Controller
                     ]);
                   }
     }
-
+    public function dialogriwayatcuti($idpegawai,$nopc)
+    {
+          if(Auth::guard('admin')->check()){  
+            
+            $aju = Ajucuti::where('id_pegawai',$idpegawai)
+                            ->where('no_pc','!=',$nopc)
+                            ->get();
+            $peg = Pegawai::where('id_pegawai',$idpegawai)->first();
+              //return view('/pelamar/datatable', compact('pelamars'));
+                  return view('admin.dialog_riwayatcuti' , [
+                      'layout'        => $this->layout,
+                      'aju'           => $aju,
+                      'nopc'          => $nopc,
+                      'idpegawai'     => $idpegawai,
+                      'peg'           => $peg,
+                         
+                       
+              ]);
+          }else{
+                  return view('admin.login',[
+                      'layout' => $this->layout 
+                    ]);
+                  }
+    }
     public function authenticate(Request $request)
     {
         $credentials = $request->only('email', 'password');

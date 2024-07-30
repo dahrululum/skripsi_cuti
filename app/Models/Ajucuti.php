@@ -35,4 +35,8 @@ class Ajucuti extends Model
     {
         return $this->hasOne(Jeniscuti::class,'kd_jenis_cuti','jenis_cuti')->withDefault();
     }
+    public function getFPPC()
+    {
+        return $this->hasOne(Fppc::class,'no_pc','no_pc')->withDefault();
+    }
 }
