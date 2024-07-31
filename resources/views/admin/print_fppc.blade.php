@@ -148,8 +148,53 @@
     <div class="col-12 bg-dark p-1 mt-2">
         F. Riwayat Cuti 
     </div>
-    <div class="col-12 border p-2">
-          tabel
+    <div class="col-12 border p-2"> 
+        <table class="table table-sm table-hover text-nowrap table-bordered" id="tablena">
+            <thead class="">
+            <tr>
+                 
+                
+                <th> No.</th>
+                
+                <th> Jenis cuti </th>
+                <th> No & Tgl Permohonan cuti </th>
+                <th> Tanggal Awal Cuti </th>
+                <th> Tanggal Akhir Cuti </th>
+                <th> Ket </th>
+                <th> #  </th> 
+                
+
+            </tr>
+            </thead>
+            <tbody>
+                @foreach ($aju as $aju)
+                <?php 
+                   $nopcr=sprintf("%04d", $aju->no_pc);
+                ?>
+                <tr>
+                   
+                    
+                    <td>{{ $loop->iteration}}</td>
+                    <td>{{ $aju->getJC->nm_jenis_cuti }} </td>
+                    <td>{{ $nopcr }}  <span class="small">[ {{ $aju->tgl_pc }} ]</span></td>
+                    <td>{{ $aju->tgl_mulai }} </td>
+                    <td>{{ $aju->tgl_selesai }}</td>
+                    <td>{{ $aju->alasan }}</td>
+                    <td>
+                        
+                        @if(empty($aju->getFPPC->atasan_langsung))
+                            <div class="text-danger small">Belum Verifikasi Atasan</div> 
+                        @else
+                            <div>{{ $aju->getFPPC->atasan_langsung }}</div> 
+                            <div>No. & Tgl. FPPC : {{ $aju->getFPPC->no_fppc }} / {{ $aju->getFPPC->tgl_fppc }}</div> 
+                        
+                        @endif
+                    </td> 
+                    
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
     </div>
     <div class="col-12 bg-dark p-1 mt-2">
         G. Pertimbangan Atasan Langsung 

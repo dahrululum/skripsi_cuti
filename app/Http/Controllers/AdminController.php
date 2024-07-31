@@ -1154,6 +1154,12 @@ class AdminController extends Controller
         if(Auth::guard('admin')->check()){  
                 $hs = Fppc::where('id',$id)->first();
                 $idaju=$hs->id;
+                $nopc=$hs->no_pc;
+                $idpeg = $hs->getPC->id_pegawai;
+                //$aju = $hs->getPC;
+                $aju = Ajucuti::where('id_pegawai',$idpeg)
+                                ->where('no_pc','!=',$nopc)
+                                ->get();
                 $tglawal=$hs->tgl_mulai;
                 $tglakhir=$hs->tgl_selesai;
                 $tglawal1 = $tglawal." 00:00:00";
@@ -1165,6 +1171,8 @@ class AdminController extends Controller
                 return view('admin.print_fppc' , [
                     'layout'        => $this->layout,
                     'hs'            => $hs,
+                    'aju'           => $aju,
+                    'idpeg'         => $idpeg,
                  
                      
                      
