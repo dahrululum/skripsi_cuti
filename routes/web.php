@@ -108,6 +108,7 @@ Route::get('/admin/printfppc/{id}',  [AdminController::class,'printfppc'])->name
 Route::get('admin/rekapcuti', [AdminController::class,'rekapcuti'])->name('admin.rekapcuti');
 Route::get('admin/printrekapcuti', [AdminController::class,'printrekapcuti'])->name('admin.printrekapcuti');
 
+Route::get('admin/riwayatcuti', [AdminController::class,'riwayatcuti'])->name('admin.riwayatcuti');
 
 //jenis
 Route::get('admin/jenis', [AdminController::class,'jenis'])->name('admin.jenis');

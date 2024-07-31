@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2024-07-30 20:59:11
+Date: 2024-07-31 21:56:11
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -30,14 +30,16 @@ CREATE TABLE `admin` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=273 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=275 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of admin
 -- ----------------------------
 INSERT INTO admin VALUES ('101', null, 'admin', '$2y$10$K9o5RXw.2qeujixYtl17ROaQch6w3mydLdXkbFLW68AgXEMGzDs0y', 'dahrul.ulum@gmail.com', '1', '1', '2020-06-25 14:12:55', null, null);
 INSERT INTO admin VALUES ('271', null, 'dafa', '$2y$10$K9o5RXw.2qeujixYtl17ROaQch6w3mydLdXkbFLW68AgXEMGzDs0y', 'dafapratama.muharam@gmail.com', '2', '1', '2024-06-22 20:24:53', '2024-06-22 20:24:53', null);
-INSERT INTO admin VALUES ('272', '1', '123456789', '$2y$10$63FA9lXx8BowHpTWr.4rt.TUKA4b6TJYQbMvji3W0i3xYNfJu/jyG', null, '2', '', '2024-07-28 14:15:22', '2024-07-28 14:15:22', null);
+INSERT INTO admin VALUES ('272', '1', 'herlina', '$2y$10$K9o5RXw.2qeujixYtl17ROaQch6w3mydLdXkbFLW68AgXEMGzDs0y', null, '2', '1', '2024-07-28 14:15:22', '2024-07-28 14:15:22', null);
+INSERT INTO admin VALUES ('273', '2', 'saipul', '$2y$10$W40zBp29PLEmQwhJ439d8.Xnh1CsJpxInSc6aMBBzviMARSSIrciy', null, '2', '1', '2024-07-31 14:29:27', '2024-07-31 14:29:27', null);
+INSERT INTO admin VALUES ('274', '3', 'doni', '$2y$10$hpjmT3EYaSKJIgLRXYBvgOVQNZtla.lwOniWsHsG5iFjcBc49W0t.', null, '2', '', '2024-07-31 14:33:25', '2024-07-31 14:33:25', null);
 
 -- ----------------------------
 -- Table structure for `fppc`
@@ -107,12 +109,14 @@ CREATE TABLE `jabatan` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`kd_jabatan`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- ----------------------------
 -- Records of jabatan
 -- ----------------------------
 INSERT INTO jabatan VALUES ('1', 'Sekretaris', '2024-07-24 05:59:18', '2024-07-24 05:59:18', null);
+INSERT INTO jabatan VALUES ('2', 'Kabid SMK', '2024-07-31 14:28:30', '2024-07-31 14:28:30', null);
+INSERT INTO jabatan VALUES ('3', 'Kabid SMA', '2024-07-31 14:28:37', '2024-07-31 14:28:37', null);
 
 -- ----------------------------
 -- Table structure for `jeniscuti`
@@ -189,12 +193,14 @@ CREATE TABLE `pegawai` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id_pegawai`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- ----------------------------
 -- Records of pegawai
 -- ----------------------------
 INSERT INTO pegawai VALUES ('1', '123456789', 'Herlinas', '10 tahun', null, 'Jl. Gaparman 1A  Pangkalpinang', '0812345646', 'herlina', '$2y$10$XLCiYWYO4uZLMfDNJfCu2.jvj6Mqu8CWnQgSbQEgrGcCoA4tx9cvS', '7', '1', '11', '1', '2024-07-28 14:15:22', '2024-07-28 14:29:52', null);
+INSERT INTO pegawai VALUES ('2', '11222333444', 'Saipul Bakri', '25', null, 'Kacang Pedang', '09991112222', 'saipul', '$2y$10$dqGTKW5VV7qKMqqGzaPMUe93OokXqIAIf4WyPEtVNpMJBBf8vl5g.', '11', '2', '13', '2', '2024-07-31 14:29:27', '2024-07-31 14:32:05', null);
+INSERT INTO pegawai VALUES ('3', '987456412314', 'Doni Putra', '30', null, 'Air Mesu', '0545797979', 'doni', '$2y$10$F5URnGnHNFhVUlAjiAIcUOwagsxLlfG30NC3oVfBPMcwtMwi38KnW', '12', '3', '14', '3', '2024-07-31 14:33:25', '2024-07-31 14:33:25', null);
 
 -- ----------------------------
 -- Table structure for `permohonan_cuti`
@@ -212,7 +218,7 @@ CREATE TABLE `permohonan_cuti` (
   `lama_cuti` varchar(20) DEFAULT NULL,
   `alasan` varchar(200) DEFAULT NULL,
   `file_pc` varchar(100) DEFAULT NULL,
-  `alamat_cuti` text DEFAULT NULL,
+  `alamat_cuti` text DEFAULT '',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
@@ -237,9 +243,11 @@ CREATE TABLE `unitkerja` (
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`kd_unitkerja`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- ----------------------------
 -- Records of unitkerja
 -- ----------------------------
 INSERT INTO unitkerja VALUES ('1', 'Bidang Sekretariat', '<p>Jl. Leparpongok No.222</p>', '2024-07-24 04:25:07', '2024-07-24 04:28:51', null);
+INSERT INTO unitkerja VALUES ('2', 'Bidang SMK', null, '2024-07-31 14:28:15', '2024-07-31 14:28:15', null);
+INSERT INTO unitkerja VALUES ('3', 'Bidang SMA', null, '2024-07-31 14:28:22', '2024-07-31 14:28:22', null);

@@ -846,8 +846,9 @@ class AdminController extends Controller
           ]);
           Admin::create([
             'id_admin' => $request['id_pegawai'],
-            'username' => $request['nip'],
+            'username' => $request['username'],
             'level' => 2,
+            'status_aktif' => 1,
             'password' => Hash::make($request['password'])
           ]);
         return Redirect::to("/admin/pegawai")->with('success','Selamat, Anda berhasil untuk menambah pegawai');
@@ -923,13 +924,21 @@ class AdminController extends Controller
     // 28 juli 2024
     public function ajucuti(){
       if(Auth::guard('admin')->check()){  
+        $levuser= Auth::guard('admin')->user()->level;
+          $iduser= Auth::guard('admin')->user()->id_admin;
+          if($levuser==1){
+            $aju = Ajucuti::all();
+          }else{
+            $aju = Ajucuti::where('id_pegawai',$iduser)->get();
+          }
+
         $jc = Jeniscuti::all();
         $jab = Jabatan::all();
         $un = Unitkerja::all();
         $pa = Pangkat::all();
         $gol = Golongan::all();
         $peg = Pegawai::all();
-        $aju = Ajucuti::all();
+        //$aju = Ajucuti::all();
         
 
         return view('admin/ajucuti' , [
@@ -1270,6 +1279,32 @@ class AdminController extends Controller
           ]);
         }
     }
+    //riwayat cuti pegawai
+    public function riwayatcuti(){
+      if(Auth::guard('admin')->check()){  
+        $levuser= Auth::guard('admin')->user()->level;
+          $iduser= Auth::guard('admin')->user()->id_admin;
+          if($levuser==1){
+            $aju = Ajucuti::all();
+          }else{
+            $aju = Ajucuti::where('id_pegawai',$iduser)->get();
+          }
+         
+
+        return view('admin/riwayatcuti' , [
+          'layout'  => $this->layout, 
+          'aju'     => $aju,
+          
+         
+         
+        ]);
+      }else{
+        return view('admin.login',[
+            'layout' => $this->layout 
+          ]);
+        }
+    }
+
     public function authenticate(Request $request)
     {
         $credentials = $request->only('email', 'password');

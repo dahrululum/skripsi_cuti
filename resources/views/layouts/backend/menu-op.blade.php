@@ -16,8 +16,8 @@
      
    
     <li class="nav-item ">
-        <a class="nav-link <?php if(Request::segment(2)=='laporan'){echo 'active';} ?>" href="<?= url('/admin/laporan/'); ?>">
-            <i class="nav-icon fas fa-table"></i>  <p>Laporan Riwayat Cuti</p>
+        <a class="nav-link <?php if(Request::segment(2)=='riwayatcuti'){echo 'active';} ?>" href="<?= url('/admin/riwayatcuti/'); ?>">
+            <i class="nav-icon fas fa-table"></i>  <p>Daftar Riwayat Cuti</p>
         </a>
     </li>
      

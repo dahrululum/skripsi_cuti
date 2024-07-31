@@ -28,10 +28,10 @@ $tglna=Carbon::parse($tglayena)->isoFormat('DD MMMM YYYY');
   </div>
  <div class="row">
     <div class="col-12 border-bottom p-2">
-        <table class="text-center">
+        <table class="text-center col-12">
             <tr>
                 <td class="col-1 "><img src="{{ asset('/images/logobabel.png') }}" width="80" alt="Survei" class="brand-image" ></td>
-                <td class="col-11"> <h1 class="font-weight-bold">DINAS PENDIDIKAN  </h1> 
+                <td class="col-11 "> <h1 class="font-weight-bold">DINAS PENDIDIKAN  </h1> 
                     <h3>PROVINSI KEPULAUAN BANGKA BELITUNG</h3>
                 </td>
             </tr>
@@ -41,6 +41,7 @@ $tglna=Carbon::parse($tglayena)->isoFormat('DD MMMM YYYY');
     
     <div class="col-12 text-center mt-4">
         <h4 class="font-weight-bold ">REKAP CUTI PEGAWAI   </h4> 
+        <h6>Periode {{ $tglna }}</h6>
     </div>
     <!-- /.col -->
   </div>
@@ -51,7 +52,7 @@ $tglna=Carbon::parse($tglayena)->isoFormat('DD MMMM YYYY');
     <!-- /.col -->
     <div class="col-sm-12 "> 
         <table class="table table-sm table-hover table-bordered" id="tablena">
-            <thead class="bg-info">
+            <thead class="">
             <tr class="text-center">
                  
                 

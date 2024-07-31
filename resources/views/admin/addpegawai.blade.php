@@ -111,7 +111,7 @@
                                   $strip = "--"; 
                                 ?>
                                 @foreach ($un as $pd)
-                                    <option value="{{ $pd->id }}">  {{ $pd->kd_unitkerja }}. {{ $pd->nm_unitkerja }}</option>
+                                    <option value="{{ $pd->kd_unitkerja }}">  {{ $pd->kd_unitkerja }}. {{ $pd->nm_unitkerja }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -126,7 +126,7 @@
                                   $strip = "--"; 
                                 ?>
                                 @foreach ($jab as $pd)
-                                    <option value="{{ $pd->id }}">  {{ $pd->kd_jabatan }}. {{ $pd->nm_jabatan }}</option>
+                                    <option value="{{ $pd->kd_jabatan }}">  {{ $pd->kd_jabatan }}. {{ $pd->nm_jabatan }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -141,7 +141,7 @@
                                   $strip = "--"; 
                                 ?>
                                 @foreach ($pa as $pd)
-                                    <option value="{{ $pd->id }}">  {{ $pd->kd_pangkat }}. {{ $pd->nm_pangkat }}</option>
+                                    <option value="{{ $pd->kd_pangkat }}">  {{ $pd->kd_pangkat }}. {{ $pd->nm_pangkat }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -156,7 +156,7 @@
                                   $strip = "--"; 
                                 ?>
                                 @foreach ($gol as $pd)
-                                    <option value="{{ $pd->id }}">  {{ $pd->kd_golongan }}. {{ $pd->nm_golongan }}</option>
+                                    <option value="{{ $pd->kd_golongan }}">  {{ $pd->kd_golongan }}. {{ $pd->nm_golongan }}</option>
                                 @endforeach
                             </select>
                         </div>
